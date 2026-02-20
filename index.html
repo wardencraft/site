@@ -27,7 +27,7 @@
         const output = document.getElementById("output");
 
         
-
+        //Abre os Shortcuts do shortcuts.json
         let shortcuts = {};
         async function loadShortcuts() {
             const res = await fetch("shortcuts.json");
@@ -41,6 +41,7 @@
             output.style.display = "block";
         }
 
+        //Funções para rodar via shortcuts
         const scripts = {
             'ls':  () => {
                     showOutput();
@@ -57,6 +58,7 @@
             }
         }
 
+        //Redirecionamento de páginas / funções via input
         search_tool = (text, link) => {
             const short = shortcuts[text];
             if(short){
@@ -74,6 +76,7 @@
             }
         }
 
+        //Lista das search engines disponiveis.
         engine = (number) => {
             engine_html.classList.remove('google', 'youtube', 'chat');
             if(number==1) {
@@ -94,12 +97,16 @@
         engine(1);
 
         input.focus();
+
+        //Hotkey para pesquisar
         input.addEventListener("keydown", (e) => {
             if(e.key === 'Enter') {
                 let text = input.value.toLowerCase();
                 search_tool(text, link);
             }
         })
+
+        //Hotkeys para alterar engines
         window.addEventListener("keydown", (e) => {
             if(e.ctrlKey && e.key === ' '){
                 e.preventDefault();
@@ -118,4 +125,5 @@
 
     </script>
 </body>
+
 </html>
