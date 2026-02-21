@@ -63,5 +63,10 @@
         "type":"url",
         "value":"/library",
         "description": "Private Library"
+    },
+    "lm": {
+        "type": "url",
+        "value":"https://notebooklm.google/",
+        "description": "Google LM Notebook"
     }
 }
